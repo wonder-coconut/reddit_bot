@@ -9,8 +9,17 @@ reddit = praw.Reddit(client_id='HW6AYqkTBgEgyQ',
 
 subreddit = reddit.subreddit('prosperolickmyfeet')
 
-keyphrase = 'crackerjack'
+key1 = 'no u'
+key2 = 'crackerjack'
 
+f=1
 for comment in subreddit.stream.comments():
-    if keyphrase in comment.body:
-        comment.reply("my feet are bigger than yours")
+    if key1 in comment.body:
+        comment.reply("no u")
+        f=0
+
+if f:
+    for comment in subreddit.stream.comments():
+        if key2 in comment.body:
+            comment.reply('my feet are bigger than yours')
+
