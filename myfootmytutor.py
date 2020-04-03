@@ -2,10 +2,16 @@ import praw
 
 #reddit api login
 reddit = praw.Reddit(client_id='HW6AYqkTBgEgyQ',
-                     client_secret='8u6ws5p6dKEPx63F-PmBwYt-e-k',
+                     client_secret=getToken(),
                      username='myfoot_mytutor',
                      password='03Rishab',
                      user_agent='myfootmytutor by u/wonder_coconut')
+
+def getToken():
+    tokenFile = open('/home/wondercoconut/python3/botshit/token.txt','r')
+    tokentxt = tokenFile.read()
+    Token = tokentxt.split('\n')
+    return Token[1]
 
 subreddit = reddit.subreddit('prosperolickmyfeet')
 
